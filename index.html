@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#090e10">
+<title>DEAD SIGNAL | Zombie Game Made by Andra</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="loadingScreen">
+  <div class="loader-card">
+    <div class="biohazard">☣</div>
+    <div class="loader-title">DEAD SIGNAL</div>
+    <div class="loader-sub">ZOMBIE SURVIVAL PROJECT</div>
+    <div class="load-track"><div id="loadingProgress"></div></div>
+    <div id="loadingText">INITIALIZING SURVIVAL SYSTEM...</div>
+    <div class="loader-credit">ZOMBIE GAME MADE BY ANDRA</div>
+  </div>
+</div>
+
+<main class="shell">
+<header class="topbar">
+  <div class="brand"><div class="brand-icon">☣</div><div><b>DEAD SIGNAL</b><small>ARCADE SURVIVAL // 1989</small></div></div>
+  <div class="network"><i></i> SURVIVOR NETWORK</div>
+</header>
+
+<section class="layout">
+  <section class="game-panel">
+    <div class="hud">
+      <div>WAVE <strong id="wave">1</strong></div>
+      <div>ELIMS <strong id="kills">0</strong></div>
+      <div>COINS <strong id="coins">0</strong></div>
+      <div>HP <strong id="hp">100</strong></div>
+      <div>WEAPON <strong id="currentWeapon">PISTOL</strong></div>
+    </div>
+    <div class="canvas-wrap">
+      <canvas id="game" width="960" height="600"></canvas>
+      <div class="overlay" id="startScreen">
+        <div class="stamp">SIGNAL LOST</div>
+        <h1>THE DEAD<br><em>ARE WALKING.</em></h1>
+        <p>Bertahan hidup. Kumpulkan koin. Hadapi wave yang semakin brutal.</p>
+        <button id="startBtn" class="primary">START SURVIVAL</button>
+        <small>WASD / ARROW KEYS · MOUSE AIM · CLICK TO SHOOT</small>
+      </div>
+      <div class="overlay hidden" id="gameOver">
+        <div class="stamp danger">RUN TERMINATED</div>
+        <h2>YOU WERE OVERRUN</h2>
+        <p id="finalStats">Survival ended.</p>
+        <button id="retryBtn" class="primary">TRY AGAIN</button>
+      </div>
+      <div class="toast" id="toast"></div>
+    </div>
+    <div class="mobile-controls">
+      <div class="dpad">
+        <button data-key="w">▲</button>
+        <div><button data-key="a">◀</button><button data-key="s">▼</button><button data-key="d">▶</button></div>
+      </div>
+      <button id="mobileFire">FIRE</button>
+    </div>
+    <div class="bottomline"><span>SECTOR 07 · ABANDONED DISTRICT</span><span id="stateLabel">SYSTEM IDLE</span></div>
+  </section>
+
+  <aside class="sidebar">
+    <section class="card">
+      <div class="card-head"><h3>FIELD ARMORY</h3><span>LOADOUT</span></div>
+      <div id="weaponList" class="weapon-list"></div>
+      <button id="upgradeBtn" class="upgrade">UPGRADE DAMAGE <b id="upgradeCost">30¢</b></button>
+      <p class="hint">Zombie drop coins saat dikalahkan. Beli senjata baru atau tingkatkan damage.</p>
+    </section>
+    <section class="card">
+      <div class="card-head"><h3>WAVE INTEL</h3><span id="waveState">STANDBY</span></div>
+      <div class="meter"><i id="waveMeter"></i></div>
+      <p id="waveHint" class="hint">Bersiap. Musuh semakin cepat dan kuat di setiap wave.</p>
+    </section>
+    <section class="card leaderboard">
+      <div class="card-head"><h3>GLOBAL RANK</h3><span>TOP 10</span></div>
+      <ol id="leaderboard"><li class="muted">Loading scores...</li></ol>
+      <form id="scoreForm" class="score-form">
+        <input id="playerName" maxlength="14" placeholder="Nama pemain" required>
+        <button type="submit">SUBMIT</button>
+      </form>
+      <p id="rankStatus" class="hint">Leaderboard lokal aktif. Online perlu konfigurasi Supabase.</p>
+    </section>
+    <section class="card controls">
+      <div class="card-head"><h3>CONTROLS</h3><span>HOW TO PLAY</span></div>
+      <p><kbd>W A S D</kbd> Bergerak</p><p><kbd>MOUSE</kbd> Bidik</p><p><kbd>CLICK</kbd> Tembak</p><p><kbd>1–4</kbd> Ganti senjata</p><p><kbd>SPACE</kbd> Tembak</p>
+    </section>
+  </aside>
+</section>
+<footer>DEAD SIGNAL // RETRO ZOMBIE SURVIVAL<br><span>ZOMBIE GAME MADE BY ANDRA © 2026</span></footer>
+</main>
+<script src="/config.js"></script>
+<script src="/game.js"></script>
+<script src="/loading.js"></script>
+</body></html>
